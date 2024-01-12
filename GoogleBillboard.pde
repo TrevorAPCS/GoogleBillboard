@@ -5,9 +5,16 @@ public void setup()
   for(int i = 0; i < noDecimalE.length() - 10; i += 1){
     double num = Double.parseDouble(noDecimalE.substring(i, i + 10));
     if(isPrime(num)){
-      System.out.println(noDecimalE.substring(i, i + 10) + " is the first 10 digit prime of e.");
+      System.out.println("The answer to the first question is: " + noDecimalE.substring(i, i + 10));
       break;
     }
+  }
+  int secondAnsPos = findAddNumber(49, 5, noDecimalE);
+  if(secondAnsPos != -1){
+    System.out.println("The answer to the second question is: " + noDecimalE.substring(secondAnsPos, secondAnsPos + 10));
+  }
+  else{
+    System.out.println("error");
   }
 }  
 public void draw()  
@@ -24,4 +31,21 @@ public boolean isPrime(double dNum)
     }
   }
   return true;
-} 
+}
+//returns place on noDecimalE
+public int findAddNumber(int sum, int time, String num){
+  int numTimes = 1;
+  for(int i = 0; i < num.length() - 9; i++){
+    int s = 0;
+    for(int f = 0; f < 10; f++){
+      s += Integer.parseInt(num.substring(i + f, i + f+ 1));
+    }
+    if(s == sum && numTimes == time){
+      return i;
+    }
+    else if(s == sum){
+      numTimes++;
+    }
+  }
+  return -1;
+}
