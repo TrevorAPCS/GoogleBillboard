@@ -1,6 +1,7 @@
 public final static String e = "2.7182818284590452353602874713526624977572470936999595749669676277240766303535475945713821785251664274274663919320030599218174135966290435";  
 public void setup()  
 {
+  System.out.println("To find the first question you need to find the first prime 10 digits of e");
   String noDecimalE = e.substring(0, 1) + e.substring(2);
   for(int i = 0; i < noDecimalE.length() - 10; i += 1){
     double num = Double.parseDouble(noDecimalE.substring(i, i + 10));
@@ -9,6 +10,9 @@ public void setup()
       break;
     }
   }
+  System.out.println("For the second question you are given f(1) - f(4) and need to find f(5).");
+  System.out.println("All of the numbers from 1-4 have digits that add to 49 and are found in e by closeness to the decimal point.");
+  System.out.println("So for the second question you need to find the 5th time 10 consecutive digits of e will add to 49.");
   int secondAnsPos = findAddNumber(49, 5, noDecimalE);
   if(secondAnsPos != -1){
     System.out.println("The answer to the second question is: " + noDecimalE.substring(secondAnsPos, secondAnsPos + 10));
